@@ -4,13 +4,60 @@ function setDate() {
 
 setDate();
 
-document.getElementById("save").addEventListener("click", function() {
-    var tasks = document.getElementById("addTask").value;
-    localStorage.setItem("task",tasks);
-    console.log(tasks);
-    alert("task saved");
-    console.log("task saved");
-}, false);
+var allButtons = document.querySelectorAll("button[class^=saveBtn");
+console.log("Found", allButtons.length, "buttons which class starts with 'saveBtn'.");
 
-document.getElementById("addTask").textContent = localStorage.getItem("task");
+for (var i = 0; i < allButtons.length; i++) {
+    allButtons[i].addEventListener("click", function(){
+        var tasks = document.getElementById("addTask").value;
+        localStorage.setItem("task", tasks);
+        console.log(tasks);
+        alert("task saved");
+        console.log("task saved");
+    }, false);
+}
 
+// document.getElementById("save").addEventListener("click", function(saveTasks) {
+//     var tasks = document.getElementById("addTask").value;
+//     localStorage.setItem("task",tasks);
+//     console.log(tasks);
+//     alert("task saved");
+//     console.log("task saved");
+
+    
+// }, false);
+var savedTasks = localStorage.getItem("task");
+
+if (savedTasks) {
+    document.getElementById("addTask").textContent = savedTasks;
+}
+
+console.log(savedTasks);
+
+// document.getElementById("addTask").textContent = localStorage.getItem("task");
+
+function colorChange() {
+    var time = moment().hour();
+    var scheduleTime = document.getElementById("hour").innerText;
+
+    var num = parseInt(scheduleTime, 10);
+    console.log(time);
+    console.log(num);
+    
+    var colorCode = document.getElementById("textArea");
+
+    if (time === num) {
+        colorCode.classList.add("present");
+        // alert("it is 9pm!")
+    }
+    else if (time > num) {
+        colorCode.classList.add("past");
+        // alert("it is before 9pm!")
+    }
+    else {
+        colorCode.classList.add("future");
+        // alert("it is after 9pm!")
+    }
+};
+
+colorChange();
