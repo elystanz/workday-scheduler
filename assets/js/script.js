@@ -44,20 +44,26 @@ function colorChange() {
     console.log(time);
     console.log(num);
     
-    var colorCode = document.getElementById("textArea");
 
-    if (time === num) {
-        colorCode.classList.add("present");
-        // alert("it is 9pm!")
+    while (colorCode.length > 0) {
+        var colorCode = document.querySelectorAll("div[class^=input-group]");
+        console.log(colorCode);
+        
+        if (time === num) {
+            colorCode.classList.add("present");
+            // alert("it is 9pm!")
+        }
+        else if (time > num) {
+            colorCode.classList.add("past");
+            // alert("it is before 9pm!")
+        }
+        else {
+            colorCode.classList.add("future");
+            // alert("it is after 9pm!")
+        }
     }
-    else if (time > num) {
-        colorCode.classList.add("past");
-        // alert("it is before 9pm!")
-    }
-    else {
-        colorCode.classList.add("future");
-        // alert("it is after 9pm!")
-    }
+    console.log(colorCode.length);
+
 };
 
 colorChange();
