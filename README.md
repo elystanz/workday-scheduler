@@ -1,21 +1,34 @@
-# Work Day Scheduler Starter Code
+# Workday Scheduler
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Application](#application)
+3. [Roadmap](#roadmap)
+4. [Contributions](#contributions)
+5. [Authors](#authors)
+6. [License](#license)
 
-# User Story
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
 
-# Acceptance Criteria
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with time blocks for standard business hours
-WHEN I view the time blocks for that day
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
-WHEN I click into a time block
-THEN I can enter an event
-WHEN I click the save button for that time block
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
+## <a id="introduction">Introduction</a>
+Workday Scheduler is a simple application that can be used to plan out your workday. This calendar runs on Dolly Parton time (9-5), with the hours changing color according to the current time.
+
+Save your tasks and recall them upon refresh or exiting the page!
+
+## <a id="application">Application</a>
+
+
+## <a id="roadmap">Roadmap</a>
+The plans for future development include improving the issue of localStorage not persisting the data properly. As of now, it will only save the first task to localStorage, and will save the others but with the same value as the first, though the key will adjust accordingly. Furthermore, the ability to adjust the hours for a variety of work schedules is a plan!
+
+## <a id="contributions">Contributions</a>
+Please feel free to make a pull request or submit an issue to troubleshoot any bugs you come across.
+
+This application does not require any additional dependencies or installs to run.
+
+## <a id="authors">Authors</a>
+[Elyse Stanziale](https://github.com/elystanz) is the main contributors and the creators of this application.
+
+## <a id="license">License</a>
+This application is protected under the ISC license.
+
+## <a id=#status>Project Status</a>
+This project is still in development and has a few bugs to work out.
