@@ -1,10 +1,10 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 16px;
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
@@ -13,12 +13,13 @@ textarea{
   padding: 10px;
 }
 
+
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: #CDF2C5;
+  color: #555555;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid #555555;
 }
 
 .description{
@@ -48,17 +49,17 @@ textarea{
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #FEADAD;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #CDF2C5;
   color: white;
 }
 
 .saveBtn {
-  background-color: #06AED5;
+  background-color: #D3C5F2;
   color: white;
 }
 

@@ -1,69 +1,61 @@
 function setDate() {
     document.getElementById("currentDay").textContent = moment(new Date()).format("DD/MM/YYYY");
+    document.getElementById("currentHour").textContent = moment().format("h:mm a");
 };
 
 setDate();
 
-var allButtons = document.querySelectorAll("button[class^=saveBtn");
-console.log("Found", allButtons.length, "buttons which class starts with 'saveBtn'.");
+$(document).ready(function () {
+    $('.saveBtn').click(function (event) {
+        event.preventDefault();
 
-for (var i = 0; i < allButtons.length; i++) {
-    allButtons[i].addEventListener("click", function(){
-        var tasks = document.getElementById("addTask").value;
-        localStorage.setItem("task", tasks);
-        console.log(tasks);
-        alert("task saved");
-        console.log("task saved");
-    }, false);
-}
-
-// document.getElementById("save").addEventListener("click", function(saveTasks) {
-//     var tasks = document.getElementById("addTask").value;
-//     localStorage.setItem("task",tasks);
-//     console.log(tasks);
-//     alert("task saved");
-//     console.log("task saved");
-
+        // can't seem to get this to save individual tasks
+        var tasks = $('#addTask').val();
+        var time = $(this).parent().attr('id');
     
-// }, false);
-var savedTasks = localStorage.getItem("task");
+        localStorage.setItem(time, tasks);
+    
+        console.log('task "' + tasks + '" has been saved!');
+    });
+});
 
-if (savedTasks) {
-    document.getElementById("addTask").textContent = savedTasks;
-}
-
-console.log(savedTasks);
-
-// document.getElementById("addTask").textContent = localStorage.getItem("task");
 
 function colorChange() {
-    var time = moment().hour();
-    var scheduleTime = document.getElementById("hour").innerText;
-
-    var num = parseInt(scheduleTime, 10);
-    console.log(time);
-    console.log(num);
+    // use date to get local times
+    const currentHour = moment().hour();
     
+    //use jQuery to loop timeblocks
+    $('.timeblock').each(function () {
+        const thisTime = parseInt($(this).attr('id').split('hour')[1]);
+        console.log(thisTime);
 
-    while (colorCode.length > 0) {
-        var colorCode = document.querySelectorAll("div[class^=input-group]");
-        console.log(colorCode);
-        
-        if (time === num) {
-            colorCode.classList.add("present");
-            // alert("it is 9pm!")
+        if (thisTime < currentHour) {
+            $(this).addClass('past');
+            $(this).removeClass('present');
+            $(this).removeClass('future');
+        } else if (thisTime === currentHour) {
+            $(this).addClass('present');
+            $(this).removeClass('past');
+            $(this).removeClass('future');
+        } else {
+            $(this).addClass('future');
+            $(this).removeClass('present');
+            $(this).removeClass('past');
         }
-        else if (time > num) {
-            colorCode.classList.add("past");
-            // alert("it is before 9pm!")
-        }
-        else {
-            colorCode.classList.add("future");
-            // alert("it is after 9pm!")
-        }
-    }
-    console.log(colorCode.length);
+    });
+    
+    
 
 };
 
 colorChange();
+
+$('#hour9 .newTask').val(localStorage.getItem('hour9'));
+$('#hour10 .newTask').val(localStorage.getItem('hour10'));
+$('#hour11 .newTask').val(localStorage.getItem('hour11'));
+$('#hour12 .newTask').val(localStorage.getItem('hour12'));
+$('#hour13 .newTask').val(localStorage.getItem('hour13'));
+$('#hour14 .newTask').val(localStorage.getItem('hour14'));
+$('#hour15 .newTask').val(localStorage.getItem('hour15'));
+$('#hour16 .newTask').val(localStorage.getItem('hour16'));
+$('#hour17 .newTask').val(localStorage.getItem('hour17'));
