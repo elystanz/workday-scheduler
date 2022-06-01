@@ -25,7 +25,7 @@ Please feel free to make a pull request or submit an issue to troubleshoot any b
 This application does not require any additional dependencies or installs to run.
 
 ## <a id="authors">Authors</a>
-[Elyse Stanziale](https://github.com/elystanz) is the main contributors and the creators of this application.
+[Elyse Stanziale](https://github.com/elystanz) is the main contributors and the creators of this application, with starter code from [Xander](https://github.com/Xandromus)!
 
 ## <a id="license">License</a>
 This application is protected under the ISC license.
